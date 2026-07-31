@@ -7,7 +7,7 @@ from pathlib import Path
 # Load Model
 # -------------------------------------
 
-MODEL_PATH = Path("deployment/tourism_model.pkl")
+MODEL_PATH = Path("/content/tourism_projecteployment/tourism_model.pkl")
 
 model = joblib.load(MODEL_PATH)
 
