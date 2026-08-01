@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 
 # Dataset path
-DATA_PATH = Path("/content/tourism_project/data/tourism.csv")
+DATA_PATH = Path("tourism_project/data/tourism.csv")
 
 # Load dataset
 df = pd.read_csv(DATA_PATH)
