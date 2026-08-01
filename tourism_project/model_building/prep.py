@@ -3,7 +3,8 @@ from pathlib import Path
 from sklearn.model_selection import train_test_split
 
 # Load dataset
-DATA_PATH = Path("/content/tourism_project/data/tourism.csv")
+DATA_PATH = Path("tourism_project/data/tourism.csv")
+
 
 df = pd.read_csv(DATA_PATH)
 
@@ -25,7 +26,7 @@ train_df, test_df = train_test_split(
 )
 
 # Save split datasets
-OUTPUT_DIR = Path("/content/tourism_project/data")
+OUTPUT_DIR = Path("tourism_project/data")
 
 train_df.to_csv(
     OUTPUT_DIR / "train.csv",
