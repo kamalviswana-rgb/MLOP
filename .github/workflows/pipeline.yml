@@ -50,10 +50,8 @@ jobs:
         with:
           name: data-splits
           path: |
-            Xtrain.csv
-            Xtest.csv
-            ytrain.csv
-            ytest.csv
+            tourism_project/data/train.csv
+            tourism_project/data/test.csv
 
   model-traning:
     needs: data-prep
@@ -70,6 +68,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: data-splits
+          path: tourism_project/data
       - name: Start MLflow Server
         run: |
           nohup mlflow ui --host 0.0.0.0 --port 5000 &  # Run MLflow UI in the background
