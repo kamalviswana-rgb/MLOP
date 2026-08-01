@@ -19,14 +19,17 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install Dependencies
-        run: <add_code_here>
+        run: |
+          pip install -r tourism_project/deployment/requirements.txt
       - name: Register Dataset
-        run: <add_code_here>
+        run: |
+          python tourism_project/model_building/data_register.py
       - name: Upload Registered Dataset
         uses: actions/upload-artifact@v4
         with:
           name: registered-data
           path: tourism_project/data/tourism.csv
+          
 
   data-prep:
     needs: register-dataset
