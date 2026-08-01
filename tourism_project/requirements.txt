@@ -1,0 +1,7 @@
+streamlit
+numpy
+scikit-learn==1.6.1
+pandas==2.2.2
+xgboost==3.3.0
+joblib==1.5.3
+mlflow==3.0.1
