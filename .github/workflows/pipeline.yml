@@ -38,11 +38,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
       - name: Install Dependencies
-        run: <add_code_here>
+        run: |
+          pip install -r tourism_project/deployment/requirements.txt
       - name: Run Data Preparation
-        run: <add_code_here>
+        run: |
+          python tourism_project/model_building/prep.py
       - name: Upload Train Test Splits
         uses: actions/upload-artifact@v4
         with:
@@ -60,9 +62,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
       - name: Install Dependencies
-        run: <add_code_here>
+        run: |
+          pip install -r tourism_project/deployment/requirements.txt
       - name: Download Train Test Splits
         uses: actions/download-artifact@v4
         with:
@@ -72,11 +75,12 @@ jobs:
           nohup mlflow ui --host 0.0.0.0 --port 5000 &  # Run MLflow UI in the background
           sleep 5  # Wait for a moment to let the server starts
       - name: Model Building
-        run: <add_code_here>
+        run: |
+          python tourism_project/model_building/train.py
       - name: Commit Trained Model
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add <add_code_here>   # path to the saved model file
+          git add tourism_project/deployment/tourism_model.pkl   # path to the saved model file
           git commit -m "Add trained model [skip ci]" || echo "No changes to commit"
           git push
