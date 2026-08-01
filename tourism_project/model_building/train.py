@@ -21,8 +21,8 @@ from xgboost import XGBClassifier
 # Paths
 # --------------------------------------------------
 
-DATA_DIR = Path("/content/tourism_project/data")
-DEPLOYMENT_DIR = Path("/content/tourism_project/deployment")
+DATA_DIR = Path("tourism_project/data")
+DEPLOYMENT_DIR = Path("tourism_project/deployment")
 
 DEPLOYMENT_DIR.mkdir(parents=True, exist_ok=True)
 
