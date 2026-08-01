@@ -9,7 +9,7 @@ df = pd.read_csv(DATA_PATH)
 
 # Remove unnecessary columns
 columns_to_drop = [
-    "CustomerID"
+    "Unnamed: 0","CustomerID"
 ]
 
 for col in columns_to_drop:
@@ -40,7 +40,10 @@ test_df.to_csv(
 print("Data preparation completed")
 print(f"Train shape: {train_df.shape}")
 print(f"Test shape : {test_df.shape}")
-
+print("\nColumn Names of train_df:")
+print(train_df.columns.tolist())
+print("\nColumn Names of test_df:")
+print(test_df.columns.tolist())
 print("\nFiles created:")
 print(OUTPUT_DIR / "train.csv")
 print(OUTPUT_DIR / "test.csv")
